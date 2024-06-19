@@ -1,0 +1,44 @@
+{% extends 'master.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-4">
+            <div class="card-body">
+                <img src='{{ product_detail['image'] }}' class="col-8" alt="">
+            </div>
+        </div>
+        <div class="col-8">
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid d-flex flex-column align-items-start">
+                    <a class="navbar-brand">
+                        {{ product_detail['title'] }}
+                    </a>
+                    <div class="badge bg-primary text-wrap">
+                        {{ product_detail['category'] }}
+                    </div>
+                </div>
+            </nav>
+
+            <h5 style="margin-top: 30px"> Product Description : </h5>
+            <p class="fw-normal">{{ product_detail['description'] }}</p>
+
+            <div class="d-flex align-items-center">
+                Rating <i class="fas fa-star" style="color: chocolate; margin-right: 5px; margin-left: 10px"></i>
+                <p class="card-text mb-0" style="margin-top: 5px">
+                    {{ product_detail['rating']['rate'] }}
+                </p>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <p class="card-text">
+                    $ {{ product_detail['price'] }}
+                </p>
+            </div>
+
+
+            <a href="/checkout?id={{ product_detail['id'] }}" class="btn btn-primary" style="margin-top: 10px">Book now</a>
+
+        </div>
+
+    </div>
+
+{% endblock %}
